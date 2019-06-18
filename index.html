@@ -5,15 +5,165 @@
     <title></title>
   </head>
   <body>
-    <div class="row">
-    	<div class="col-lg-12">
-    		<h3 class='header-container'>Hiburan</h3>
-    		<br>
-    		<iframe width="500" height="315" src="https://www.youtube.com/embed/Zzfwud1IxaA" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    		<iframe width="500" height="315" src="https://www.youtube.com/embed/0wNZ8dsRdvo" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    		<iframe width="500" height="315" src="https://www.youtube.com/embed/zR49i7A2IqI" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    	</div>
+    <div class="container">
+  <div id='main' class='navs hidden'>
+    <div class='row justify-content-center'>
+      <div class='bgheader'>
+        <img src="<?= base_url() ?>assets_member/img/desaindepan.jpg" class="bgpic" alt="">
+        <div class="textmarq">
+          <p id='marquee'></p>
+        </div>
+      </div>
+      <form action="<?= base_url() ?>tes-kepribadian" class="bgbtnjoin">
+        <button type="submit" class="btn btn-primary btn-lg btn--pill">
+          Yuk Tes Psikologi
+          <br><strong>GRATIS</strong>
+        </button>
+      </form>
+
     </div>
+    <br><br>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="testimoni-title">
+          <h3 class='header-container'>Testimoni Tentang Identity</h3>
+        </div>
+      </div>
+      <div>
+        <img src="<?= base_url() ?>assets_member/img/testimoni1.jpg" class="bgtestimoni" alt="">
+      </div>
+
+      <div>
+        <img src="<?= base_url() ?>assets_member/img/testimoni2.jpg" class="bgtestimoni" alt="">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class='header-container'>Hiburan</h3>
+        <br>
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/Zzfwud1IxaA" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/0wNZ8dsRdvo" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="500" height="315" src="https://www.youtube.com/embed/zR49i7A2IqI" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class='header-container'>YUK JOIN menjadi bagian dari Volunteer Identity</h3>
+        <br>
+        <div>
+          <img src="<?= base_url() ?>assets_member/img/volunteer.jpg" class="bgvolunteer" alt="">
+          <div class='text-center'>
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSerWpOEzykMV8YAf6aPJdYui3FNA7B_CcXq8n_OjwxBzo0OpQ/viewform?embedded=true">
+              <button type="submit" class="btn btn-primary btn-lg btn--pill">Daftar</button> </form> <br><br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <?php
+    $jumArtikel = sizeof($listArtikel);
+    $rowArtikel = ceil($jumArtikel / 4);
+    ?>
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class='header-container'>Artikel</h3>
+      </div>
+      <div class='container border-custom p-5'>
+        <div class='col-lg-12'>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+              <?php
+              for ($i = 1; $i <= $rowArtikel; $i++) {
+                $column = $i == $rowArtikel ? 4 - ($i * 4 - $jumArtikel) : 4;
+                ?>
+                <div id='carouselR<?= $i ?>' class="carousel-item">
+                  <div class="row">
+                    <?php for ($j = 0; $j < $column; $j++) { ?>
+                      <div class="col-sm-3">
+                        <div class="card mb-3 text-white bg-yellow">
+                          <img class="card-img-top" style="height:auto;" src="<?= $listArtikel[$j + (($i - 1) * 4)]->thumbnail ?>" alt="Card image cap">
+                          <div class="card-body">
+                            <p title="<?= $listArtikel[$j + (($i - 1) * 4)]->title ?>" class="card-text"><a href="<?= base_url() . 'Baca/' . $listArtikel[$j + (($i - 1) * 4)]->slug ?>"><?= substr($listArtikel[$j + (($i - 1) * 4)]->title, 0, 15) . "......" ?></a></p>
+                          </div>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+                </div>
+              <?php } ?>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class='header-container'>Tentang Identity</h3>
+        <br>
+      </div>
+      <div class="col-lg-12">
+        <img class="img-fluid" src="<?= base_url() ?>assets_member/img/bawah.jpg">
+        <!-- <div class="container">
+          <p>
+            IDENTITYTEST.ID merupakan platform yang diperuntukkan bagi generasi millenealls atau gen Z untuk mengenali kepribadian dan membantu menemukan bakat dan minat di dalam diri guna merancang impian (seputar perkuliahan/ karier) melalui Test Psikotest, layanan curhat, dll
+          </p>
+          <p>
+            <strong>KONTAK KAMI</strong> <br>
+            <i class="fa fa-phone" aria-hidden="true"></i> +62 821 8671 4154 <br>
+            <i class="fa fa-envelope" aria-hidden="true"></i> identity.idn1@gmail.com <br>
+            <i class="fa fa-map-marker" aria-hidden="true"></i> Jalan Residen Abdul Rozak No. 39 RT1 RW 1
+            Kelurahan Bukit Sangkal Kecamatan Kalidoni Palembang <br>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-5 text-center">
+        <div>
+          <img class='img-fluid' src="<?= base_url() ?>assets_member/img/about.jpg" alt="">
+        </div>
+        <br>
+        <div class='text-center'>
+          <p>Rezi Alzul <br> Founder dan CEO Identitytest.id</p>
+        </div>
+      </div> -->
+      </div>
+
+      <br>
+    </div>
+
+    <div id='panggil_psikolog' class='navs hidden'>
+      <div class='row'>
+        <div class='col-lg-12 text-center'>
+          <h1>Coming soon...</h1>
+        </div>
+      </div>
+    </div>
+
+    <div id='blog' class='navs hidden'>
+
+    </div>
+
+    <div id='curhat' class='navs hidden'>
+      <div class='row'>
+        <div class='col-lg-12 text-center'>
+          <h1>Coming soon...</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </body>
 </html>
